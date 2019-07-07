@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.wxRankMapper">
+	<resultMap id="rankMap" type="com.example.demo.entity.wxRank">
+
+		<result property="userid" column="user_id"></result>
+		<result property="nickname" column="nickname"></result>
+		<result property="avatarUrl" column="avatar_url"></result>
+		<result property="stepnum" column="step_num"></result>
+	</resultMap>
+	
+	<select id="getAllRecord" resultType="wxRank" resultMap="rankMap">
+       select s.user_id,u.nickname,u.avatar_url,MAX(s.step_num) as step_num
+       from wxstep s,wxuser u 
+       where s.user_id=u.user_id and to_days(s.step_time) = to_days(now()) 
+       group by s.user_id 
+	   order by step_num DESC limit 20;
+	</select>
+	
+	
+</mapper>

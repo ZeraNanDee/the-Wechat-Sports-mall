@@ -1,0 +1,10 @@
+.userAvatarLayout{
+  text-align: center;
+  width: 180rpx;
+}
+.margin-in{
+  margin-bottom: 6rpx;
+  margin-top: 6rpx;
+  margin-left: 3rpx;
+  margin-right: 3rpx;
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.example.demo.dao.wxAddressMapper">
+  	<resultMap id="addressMap" type="com.example.demo.entity.wxAddress">
+
+		<!--id表示主键字段，property：User类中的属性，column：数据表中的字段，javaType：Use类中属性的类型 -->
+		<!--result表示对象的任何一个属性字段 -->
+		<id property="id" column="address_id"></id>
+		<result property="userid" column="user_id"></result>
+		<result property="name" column="user_name"></result>
+		<result property="phoneNumber" column="phonenumber"></result>
+		<result property="region" column="region"></result>
+		<result property="detail" column="detail"></result>
+		
+	</resultMap>
+	
+	<select id="getAddress" resultType="wxAddress" parameterType="java.lang.String" resultMap="addressMap">
+		SELECT * FROM wxAddress 
+        WHERE user_id =(SELECT user_id 
+				        FROM wxUser 
+				        WHERE openid=#{openid});
+	</select>
+	
+	<insert id="insertAddress" parameterType="wxAddress">
+		insert into wxaddress(user_id,user_name, phonenumber, region, detail) 
+		values(#{userid},#{name},#{phoneNumber},#{region},#{detail});
+	</insert>
+	
+	<delete id="deleteAddress" parameterType="java.lang.Integer">
+		delete from wxAddress where address_id=#{id};
+	</delete>
+
+	<update id="updateAddress" parameterType="wxAddress" >
+		update wxaddress set user_name=#{name},phonenumber=#{phoneNumber},
+region=#{region},detail=#{detail} where user_id=#{userid};
+	</update>
+
+</mapper>

@@ -1,0 +1,284 @@
+/* pages/acount/sport/sport.wxss */
+page{
+  height: 100%;
+}
+.warp {
+    height: 100%;
+}
+.warp image {
+    width: 100%;
+    height: 100%;
+    top:0px;
+    bottom:0px;
+    position:fixed; 
+    z-index: -1;
+}
+.canvas {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #3ad7e2;
+    z-index: 2;
+}
+
+.display{
+  margin: 20rpx;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.skimgItem{
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-area{
+  margin: 20rpx;
+  border: 10rpx;
+}
+.cal{
+  margin: 5rpx;
+  font-size: 18px;
+}
+
+.sign{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+}
+
+.signin{
+  align-self: center;
+  font-size: 30rpx;
+  color: rgb(250, 250, 250);
+}
+
+.record{
+  align-items: center;
+  align-self: center;
+}
+
+.dir{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/**color-ui的组件css**/
+.gif-black{  
+  mix-blend-mode: screen;  
+}
+.gif-white{  
+  mix-blend-mode: multiply; 
+}
+
+[class*=animation-] {
+    animation-duration: .5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both
+}
+
+.animation-scale-up {
+    animation-name: scale-up
+}
+
+@keyframes scale-up {
+    0% {
+        opacity: 0;
+        transform: scale(.2)
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+
+/**水滴效果CSS**/
+.drip {
+  width: 200px;
+  height: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  position: relative;
+}
+.drip:before {
+  position: absolute;
+  left: 92.5px;
+  top: 0;
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: rgb(236, 240, 243);
+  border-radius: 50%;
+  opacity: 0;
+  animation: drip 4s ease infinite;
+}
+.drip:after {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 0px;
+  height: 0px;
+  border: solid 4px rgb(241, 241, 241);
+  border-radius: 50%;
+  opacity: 0;
+  animation: splash 4s ease infinite;
+}
+ 
+@keyframes drip {
+  10% {
+    top: 0;
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.24, 0, 0.76, 0.14);
+  }
+  25% {
+    opacity: 1;
+    top: 200px;
+    animation-timing-function: ease-out;
+    width: 15px;
+    height: 15px;
+    left: 92.5px;
+  }
+  30% {
+    opacity: 1;
+    top: 160px;
+    width: 5px;
+    height: 5px;
+    animation-timing-function: ease-in;
+    left: 97.5px;
+  }
+  33% {
+    top: 200px;
+    opacity: 0;
+    animation-timing-function: ease-out;
+    left: 97.5px;
+  }
+  33.001% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes splash {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    bottom: 50px;
+    left: 100px;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+  }
+  25.001% {
+    opacity: 1;
+  }
+  33% {
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    width: 200px;
+    height: 100px;
+  }
+  33.001% {
+    bottom: 50px;
+    left: 100px;
+    opacity: 1;
+    width: 0px;
+    height: 0px;
+  }
+  43% {
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    width: 200px;
+    height: 100px;
+  }
+  43.001% {
+    opacity: 0;
+  }
+}
+
+/**签到杯子**/
+.cup {
+width: 100rpx;
+height: 120rpx;
+background-color: rgb(0, 0, 0);
+margin-left: 8rpx;
+position: relative;
+margin-top: 15rpx;
+margin-bottom: 30rpx;
+box-shadow: 0rpx 0rpx 180rpx gray inset;
+}
+
+.cup::before {
+content: "";
+display: block;
+position: absolute;
+top: -30rpx;
+width: 100%;
+height: 50rpx;
+background-color: rgb(236, 218, 218);
+border-radius: 50%/50%;
+background: linear-gradient(to bottom, rgb(243, 237, 237), rgb(165, 153, 144));
+}
+
+.cup::after {
+content: "";
+display: block;
+position: absolute;
+bottom: -30rpx;
+width: 100%;
+height: 50rpx;
+background-color: rgb(17, 11, 1); 
+border-radius: 50%/50%;
+border-bottom: 3rpx solid rgb(236, 218, 218);
+box-sizing: border-box;
+}
+
+/**水球效果**/
+.water {
+    height: 80rpx;
+    width: 15rpx;
+    display: block;
+    position: relative;
+    transform:rotate(180deg);
+}
+
+.water:before {
+    content: ' ';
+    height: 26px;
+    width: 26px;
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    z-index: 1;
+    line-height: 26px;
+    background: radial-gradient(#dbf5f5,#77f5f5,#21f1f1);
+    border-radius: 40px;
+  -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    color: #77f5f5;
+    text-align: center;
+}
+
+.water:after {
+    content: '';
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    bottom: 2px;
+    left: 3px;
+    border: 10px transparent solid;
+    border-top-color: #73f3f3;
+    border-width: 15px 10px 0px 10px;
+    }

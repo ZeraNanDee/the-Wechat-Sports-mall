@@ -1,0 +1,178 @@
+<view class='index_hd'>
+  <view class='box'>
+    <view class='bg-gradual-green box step' bindtap='exchange'>
+      <text class='count'>{{cal}}Cal</text>
+      <text class='click'>点击兑换燃烧券</text>
+    </view>
+    <block wx:if="{{!isLogin}}">
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='bg-gradual-green yaoqing' size="default"> 立即授权 </button>
+      <text class='text-brown choose'>授权后，体验完整的功能</text>
+    </block>
+
+    <block wx:else>
+      <button class='bg-gradual-green yaoqing' size="default" open-type="share"> 分享群聊得燃烧券 </button>
+      <text class='text-brown text-center choose'>首次邀请您和您的好友均可获得10张券</text>
+    </block>
+  </view>
+  <view class='gongneng'>
+    <image class='money' src='../../images/icon_money.png' mode='aspectFit'></image>
+    <text class='cost'>:{{balance}}</text>
+  </view>
+</view>
+
+  <view class="cu-bar bg-white margin-top">
+    <view class='action'>
+      <text class='icon-title text-pink text-bold'></text> 卡路里运动商品
+    </view>
+  </view>
+  <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+    <swiper-item wx:for="{{productImage.length}}" wx:key class="{{cardCur==index?'cur':''}}">
+    <!--image组件的话可以显示本地图片，真机上可见。background-image:url这种用于已经上线的服务器上面比较适用，真机上可见-->
+      
+      <view class='bg-img shadow-blur' style="background-image:url('{{productImage[index].picture}}')"></view>
+    </swiper-item>
+  </swiper>
+
+
+<!--运动帽子分类-->
+<view class='layout'>
+
+<view class="padding-xl radius shadow-warp bg-white margin-top">
+<text class="bg-brown padding radius text-center shadow-blur word">运动帽类</text>
+</view>
+<view class='products'>
+<block wx:for="{{products}}" wx:key wx:if="{{index<4}}">
+    <view class='product'>
+
+      <image src='{{item.picture}}' mode='aspectFit' class='product-image' bindtap="showModal" data-target="Image" data-id='{{index}}'></image>
+
+      <text>{{item.productName}}</text>
+      <text class='kucun'>库存:{{item.pCount}}件</text>
+      <view class='gongneng'>
+        <image class='money' src='../../images/icon_money.png' mode='aspectFit'></image>
+        <text class='cost'>:{{item.price}}</text>
+      </view>
+      <button class='cu-btn bg-green basis-sm shadow' data-index='{{index}}' bindtap='exproduct'>免费兑换</button>
+
+      <view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="bg-img" style="background-image: url({{picture}});height:500rpx;">
+      <view class="cu-bar justify-end text-white">
+        <view class='action' bindtap='hideModal'>
+          <text class='icon-close '></text>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class='action margin-0 flex-sub  solid-left' bindtap='hideModal'>确认</view>
+    </view>
+  </view>
+</view>
+
+    </view>
+  </block>
+</view>
+<!--运动衣分类-->
+<view class="padding-xl radius shadow-warp bg-white margin-top">
+<text class="bg-brown padding radius text-center shadow-blur word">运动衣类</text>
+</view>
+<view class='products'>
+<block wx:for="{{products}}" wx:key wx:if="{{index>=4&&index<8}}">
+    <view class='product'>
+      <image src='{{item.picture}}' mode='aspectFit' class='product-image' bindtap="showModal" data-target="Image" data-id='{{index}}'></image>
+      <text>{{item.productName}}</text>
+      <text class='kucun'>库存:{{item.pCount}}件</text>
+      <view class='gongneng'>
+        <image class='money' src='../../images/icon_money.png' mode='aspectFit'></image>
+        <text class='cost'>:{{item.price}}</text>
+      </view>
+     <button class='cu-btn bg-green basis-sm shadow' data-index='{{index}}' bindtap='exproduct'>免费兑换</button>
+
+      <view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="bg-img" style="background-image: url({{picture}});height:500rpx;">
+      <view class="cu-bar justify-end text-white">
+        <view class='action' bindtap='hideModal'>
+          <text class='icon-close '></text>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class='action margin-0 flex-sub  solid-left' bindtap='hideModal'>确认</view>
+    </view>
+  </view>
+</view>
+
+    </view>
+    </block>
+</view>
+<!--运动裤分类-->
+<view class="padding-xl radius shadow-warp bg-white margin-top">
+<text class="bg-brown padding radius text-center shadow-blur word">运动裤类</text>
+</view>
+<view class='products'>
+<block wx:for="{{products}}" wx:key wx:if="{{index>=8&&index<12}}">
+    <view class='product'>
+      <image src='{{item.picture}}' mode='aspectFit' class='product-image' bindtap="showModal" data-target="Image" data-id='{{index}}'></image>
+      <text>{{item.productName}}</text>
+      <text class='kucun'>库存:{{item.pCount}}件</text>
+      <view class='gongneng'>
+        <image class='money' src='../../images/icon_money.png' mode='aspectFit'></image>
+        <text class='cost'>:{{item.price}}</text>
+      </view>
+      <button class='cu-btn bg-green basis-sm shadow' data-index='{{index}}' bindtap='exproduct'>免费兑换</button>
+
+      <view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="bg-img" style="background-image: url({{picture}});height:500rpx;">
+      <view class="cu-bar justify-end text-white">
+        <view class='action' bindtap='hideModal'>
+          <text class='icon-close '></text>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class='action margin-0 flex-sub  solid-left' bindtap='hideModal'>确认</view>
+    </view>
+  </view>
+</view>
+
+    </view>
+    </block>
+</view> 
+<!--运动鞋分类-->
+<view class="padding-xl radius shadow-warp bg-white margin-top">
+<text class="bg-brown padding radius text-center shadow-blur word">运动鞋类</text>
+</view>
+<view class='products'>
+<block wx:for="{{products}}" wx:key wx:if="{{index>=12&&index<16}}">
+    <view class='product'>
+      <image src='{{item.picture}}' mode='aspectFit' class='product-image' bindtap="showModal" data-target="Image" data-id='{{index}}'></image>
+      <text>{{item.productName}}</text>
+      <text class='kucun'>库存:{{item.pCount}}件</text>
+      <view class='gongneng'>
+        <image class='money' src='../../images/icon_money.png' mode='aspectFit'></image>
+        <text class='cost'>:{{item.price}}</text>
+      </view>
+      <button class='cu-btn bg-green basis-sm shadow' data-index='{{index}}' bindtap='exproduct'>免费兑换</button>
+
+      <view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="bg-img" style="background-image: url({{picture}});height:500rpx;">
+      <view class="cu-bar justify-end text-white">
+        <view class='action' bindtap='hideModal'>
+          <text class='icon-close '></text>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class='action margin-0 flex-sub  solid-left' bindtap='hideModal'>确认</view>
+    </view>
+  </view>
+</view>
+
+    </view>
+    </block>
+</view> 
+
+</view>

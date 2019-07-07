@@ -1,0 +1,87 @@
+<view class="bg-img bg-mask padding-tb-xl" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553828763335&di=1beaa4d99f6f0cabd4a096133707efe2&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn%2Fw640h415%2F20171222%2F4ebb-fypvuqf1210205.jpg')">
+  <view class='padding-xl text-white'>
+    <view class='padding-xs text-xxl text-bold text-center'>
+      今 日 步 数 全 国 排 名
+    </view>
+    <view class='padding-xs text-center'>
+      Today's National Step Ranking
+    </view>
+  </view>
+</view>
+
+
+<view class='padding-sm'>
+  <view class='bg-gradual-blue padding radius shadow-blur '>
+
+    <!--NO.1-->
+    <view class="flex p-xs  mb-sm">
+      <view class='basis-xs bg-gray margin-in padding-sm radius text-center'>
+        <text class="icon-upstagefill text-bold text-yellow lg" style='font-size:66rpx;'></text>
+        <view class='margin-top-sm text-Abc text-bold'>No.1</view>
+      </view>
+      <view class='flex-twice bg-gray padding-sm margin-in radius' style='display:flex;flex-direction: row-reverse'>
+        <view class='userAvatarLayout'>
+          <image class="cu-avatar round lg" src="{{avatarUrl1}}"></image>
+          <view class='text-gray text-sm'>{{nickname1}}</view>
+        </view>
+        <view class='solid-bottom text-xl padding'>
+          <text class='text-red text-bold' style='font-size:60rpx;'>{{step1}}步</text>
+        </view>
+      </view>
+    </view>
+
+    <!--NO.2-->
+    <view class="flex  p-xs  mb-sm">
+      <view class='basis-xs bg-gray margin-in padding-sm radius text-center'>
+        <text class="icon-upstagefill text-bold text-grey lg" style='font-size:55rpx;'></text>
+        <view class='margin-top-sm text-Abc text-bold'>No.2</view>
+      </view>
+      <view class='flex-twice bg-gray padding-sm margin-in radius' style='display:flex;flex-direction: row-reverse'>
+        <view class='userAvatarLayout'>
+          <image class="cu-avatar round lg" src="{{avatarUrl2}}"></image>
+          <view class='text-gray text-sm'>{{nickname2}}</view>
+        </view>
+        <view class='solid-bottom text-xl padding'>
+          <text class='text-red text-bold' style='font-size:60rpx;'>{{step2}}步</text>
+        </view>
+      </view>
+    </view>
+
+    <!--NO.3-->
+    <view class="flex  p-xs  mb-sm">
+      <view class='basis-xs bg-gray margin-in padding-sm radius text-center'>
+        <text class="icon-upstagefill text-bold text-brown lg" style='font-size:45rpx;'></text>
+        <view class='margin-top-sm text-Abc text-bold'>No.3</view>
+      </view>
+      <view class='flex-twice bg-gray padding-sm margin-in radius' style='display:flex;flex-direction: row-reverse'>
+        <view class='userAvatarLayout'>
+          <image class="cu-avatar round lg" src="{{avatarUrl3}}"></image>
+          <view class='text-gray text-sm'>{{nickname3}}</view>
+        </view>
+        <view class='solid-bottom text-xl padding'>
+          <text class='text-red text-bold' style='font-size:60rpx;'>{{step3}}步</text>
+        </view>
+      </view>
+    </view>
+
+    <!--4-20名的排名,LIST-->
+    <block wx:for="{{ranking}}" wx:key="key" wx:for-index="index" data-index="{{index}}">
+      <view class="flex  p-xs  mb-sm">
+        <view class='basis-xs bg-gray margin-in padding-sm radius text-center'>
+          <text class="icon-hot text-bold text-red lg" style='font-size:45rpx;'></text>
+          <view class='margin-top-sm text-Abc text-bold'>No.{{index+4}}</view>
+        </view>
+        <view class='flex-twice bg-gray padding-sm margin-in radius' style='display:flex;flex-direction: row-reverse'>
+          <view class='userAvatarLayout'>
+            <image class="cu-avatar round lg" src="{{item.avatarUrl}}"></image>
+            <view class='text-gray text-sm'>{{item.nickname}}</view>
+          </view>
+          <view class='solid-bottom text-xl padding'>
+          <text class='text-red text-bold' style='font-size:60rpx;'>{{item.stepnum}}步</text>
+          </view>
+        </view>
+      </view>
+    </block>
+
+  </view>
+</view>

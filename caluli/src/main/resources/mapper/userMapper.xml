@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.wxUserMapper">
+
+	<resultMap id="userMap" type="com.example.demo.entity.wxUser">
+
+		<!--id表示主键字段，property：User类中的属性，column：数据表中的字段，javaType：Use类中属性的类型 -->
+		<!--result表示对象的任何一个属性字段 -->
+		<id property="userid" column="user_id"></id>
+		<result property="openid" column="openid"></result>
+		<result property="inviteId" column="invite_id"></result>
+		<result property="nickName" column="nickname"></result>
+		<result property="city" column="city"></result>
+		<result property="country" column="country"></result>
+		<result property="avatarUrl" column="avatar_url"></result>
+		<result property="gender" column="gender"></result>
+		<result property="language" column="language"></result>
+		<result property="balance" column="balance"></result>
+		
+		
+	</resultMap>
+
+
+	<insert id="insertUser" parameterType="wxUser">
+		insert into wxUser
+		(openid,invite_id,nickname,city,country,avatar_url,gender,language,province,balance)
+		values(#{openid},#{inviteId},#{nickName},#{city},#{country},#{avatarUrl},#{gender},#{language},#{province},#{balance})
+	</insert>
+
+	<select id="selectUser" parameterType="java.lang.String"
+		resultMap="userMap">
+		SELECT avatar_url,nickname FROM wxUser WHERE openid = #{openid}
+	</select>
+
+	<select id="isexistUser" parameterType="java.lang.String"
+		resultType="Integer">
+		SELECT count(*) FROM wxUser where openid=#{openid}
+	</select>
+	
+	<select id="getUserId" parameterType="java.lang.String"
+	    resultType="Integer">
+		SELECT user_id FROM wxUser where openid= #{openid}
+	</select>
+	
+	<select id="getbalance" parameterType="java.lang.String"
+	    resultType="Double">
+		SELECT balance FROM wxUser where openid= #{openid}
+	</select>
+
+	<update id="addbalance" parameterType="wxUser">
+	update wxuser SET balance=#{balance} WHERE user_id=#{userid};
+	</update>
+
+	<select id="thatbalance" parameterType="java.lang.Integer"
+			resultType="Double">
+		SELECT balance FROM wxUser where user_id=#{userid};
+	</select>
+	
+	<update id="updatebalance" parameterType="wxUser">
+	update wxuser SET balance=#{balance} WHERE openid=#{openid};
+	</update>
+
+	<update id="updateuser" parameterType="wxUser">
+		update wxuser
+		SET nickname=#{nickName},
+		avatar_url=#{avatarUrl},
+		gender=#{gender}
+		WHERE user_id=#{userid};
+	</update>
+	
+	
+</mapper>

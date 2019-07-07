@@ -1,0 +1,147 @@
+<view class="swiper-tab">
+  <block wx:for="{{swipertab}}" wx:key="sptab">
+    <view class="swiper-tab-list {{currtab == item.index ? 'on' : ''}}" data-current="{{item.index}}" bindtap="tabSwitch">{{item.name}}</view>
+  </block>
+</view>
+ 
+<swiper current="{{currtab}}" class="swiper-box" duration="300" style="height:{{deviceH}}px" bindchange="tabChange">
+  <!-- 待发货 -->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" style="height:600px">
+      <view  class="orderDetails" wx:for="{{waitDeliveryOrder}}" wx:key>
+        <view class="orderListTitle">
+        <view class='orderListHeader'>
+          <text class="userName">姓名：{{item.userName}}</text>
+          <text class="phoneNumber">电话：{{item.phoneNumber}}</text>
+        </view>
+        <view class='orderListHeader'>
+          <text class="region">地址：{{item.region}}</text>
+          <text class="detail">{{item.detail}}</text>
+        </view>
+        </view>
+     
+        <view class="orderListDetails">
+          <view class="productImg">
+            <image src="{{item.picture}}" background-size="cover"></image>
+          </view>
+          <view class="productInfo">
+          <view class="productTitle">商品名称: {{item.productName}}</view>
+            <view class="productTitle">兑换时间: {{item.createOrderTime}}</view>
+            <text class="productTitle">当前状态：已兑换</text>
+          </view>
+        </view>
+        <view class="productCount">
+          <view>
+          <button class="cu-btn round bg-grey shadow" role="button" aria-disabled="false" bindtap='revoke' data-idx='{{index}}' data-id="{{item.orderId}}" style='align-self: center; margin-right:15rpx;'>撤单/退货</button>
+           燃烧券：<image class='money' src='../../../images/icon_money.png' mode='aspectFit'></image>{{item.price}}
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <!-- 待收货 -->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" style="height:600px">
+      <view class="orderDetails" wx:for="{{waitArrivalOrder}}" wx:key="{{item.id}}"data-id="item.currtab">
+         <view class="orderListTitle">
+        <view class='orderListHeader'>
+          <text class="userName">姓名：{{item.userName}}</text>
+          <text class="phoneNumber">电话：{{item.phoneNumber}}</text>
+        </view>
+        <view class='orderListHeader'>
+          <text class="region">地址：{{item.region}}</text>
+          <text class="detail">{{item.detail}}</text>
+        </view>
+        </view>
+     
+        <view class="orderListDetails">
+          <view class="productImg">
+            <image src="{{item.picture}}" background-size="cover"></image>
+          </view>
+          <view class="productInfo">
+          <view class="productTitle">商品名称: {{item.productName}}</view>
+            <view class="productTitle">发货时间: {{item.createOrderTime}}</view>
+            <text class="productTitle">当前状态：已发货</text>
+          </view>
+        </view>
+        <view class="productCount">
+          <view>
+<button class="cu-btn round bg-grey shadow" role="button" aria-disabled="false" bindtap='revoke' data-idx='{{index}}' data-id="{{item.orderId}}" style='align-self: center; margin-right:15rpx;'>撤单/退货</button>
+<button class="cu-btn round bg-green shadow" role="button" aria-disabled="false" bindtap='confirm' data-idx='{{index}}' data-id="{{item.orderId}}" style='align-self: center; margin-right:15rpx;'>确认收货</button>
+           燃烧券：<image class='money' src='../../../images/icon_money.png' mode='aspectFit'></image>{{item.price}}
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <!-- 已完成 -->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" style="height:600px">
+      <view class="orderDetails" wx:for="{{okOrder}}" wx:key="{{item.id}}"data-id="item.currtab">
+        <view class="orderListTitle">
+        <view class='orderListHeader'>
+          <text class="userName">姓名：{{item.userName}}</text>
+          <text class="phoneNumber">电话：{{item.phoneNumber}}</text>
+        </view>
+        <view class='orderListHeader'>
+          <text class="region">地址：{{item.region}}</text>
+          <text class="detail">{{item.detail}}</text>
+        </view>
+        </view>
+     
+        <view class="orderListDetails">
+          <view class="productImg">
+            <image src="{{item.picture}}" background-size="cover"></image>
+          </view>
+          <view class="productInfo">
+          <view class="productTitle">商品名称: {{item.productName}}</view>
+            <view class="productTitle">收货时间: {{item.createOrderTime}}</view>
+            <text class="productTitle">当前状态：已收货</text>
+          </view>
+        </view>
+        <view class="productCount">
+          <view>
+<button class="cu-btn round bg-green shadow" role="button" aria-disabled="false" bindtap='finish' data-idx='{{index}}' data-id="{{item.orderId}}" style='align-self: center; margin-right:15rpx;'>完成</button>
+           燃烧券：<image class='money' src='../../../images/icon_money.png' mode='aspectFit'></image>{{item.price}}
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+ <!-- 退货 -->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" style="height:600px">
+      <view class="orderDetails" wx:for="{{retrunOrder}}" wx:key="{{item.id}}"data-id="item.currtab">
+         <view class="orderListTitle">
+        <view class='orderListHeader'>
+          <text class="userName">姓名：{{item.userName}}</text>
+          <text class="phoneNumber">电话：{{item.phoneNumber}}</text>
+        </view>
+        <view class='orderListHeader'>
+          <text class="region">地址：{{item.region}}</text>
+          <text class="detail">{{item.detail}}</text>
+        </view>
+        </view>
+     
+        <view class="orderListDetails">
+          <view class="productImg">
+            <image src="{{item.picture}}" background-size="cover"></image>
+          </view>
+          <view class="productInfo">
+          <view class="productTitle">商品名称: {{item.productName}}</view>
+            <view class="productTitle">处理时间: {{item.createOrderTime}}</view>
+            <text class="productTitle">当前状态：已撤单</text>
+          </view>
+        </view>
+        <view class="productCount">
+          <view>
+<view class="bg-grey radius text-center shadow-blur" style='margin-right:20rpx;align-self:center;'>待管理员确认
+</view>
+           燃烧券：<image class='money' src='../../../images/icon_money.png' mode='aspectFit'></image>{{item.price}}
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+ 
+</swiper>

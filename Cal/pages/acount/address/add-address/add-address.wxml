@@ -1,0 +1,39 @@
+<view class='container'>
+<form>
+
+  <view class="cu-form-group" >
+    <view class='title'>联系人:</view>
+    <input id='name' class='radius' name='input' value='{{name}}' bindinput="onInput"></input>
+  </view>
+
+<view class="cu-form-group">
+    <view class='title'>手机号码:</view>
+    <input type="number" id='phoneNumber' placeholder="11位号码" class='radius' name='input' value='{{phoneNumber}}' bindinput="onInput"></input>
+    <view class="cu-capsule radius">
+      <view class='cu-tag bg-blue '>
+        +86
+      </view>
+      <view class="cu-tag line-blue">
+        中国大陆
+      </view>
+    </view>
+</view>
+
+  <view class="cu-form-group">
+    <view class='title'>地址选择:</view>
+    <picker id='region' mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}" bindchange='onInput'>
+      <view class="picker">
+        {{region}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="cu-form-group">
+    <view class='title'>详细地址:</view>
+    <input id='detail' placeholder="统一标题的宽度" class='radius ' name='input' value="{{detail}}" placeholder='如道路/门牌号/小区/单元室等' bindinput="onInput"></input>
+  </view>
+</form>
+<view class="padding flex flex-wrap justify-between align-center ">
+  <button class="cu-btn round lg button-hover bg-blue"role="button" aria-disabled="false" bindtap='save'>保存</button>
+</view>
+</view> 

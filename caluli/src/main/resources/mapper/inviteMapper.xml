@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.wxInviteMapper">
+    <resultMap id="inviteMap" type="com.example.demo.entity.wxInvite">
+        <id property="rid" column="r_id"></id>
+        <result property="openid" column="openid"></result>
+        <result property="userid" column="user_id"></result>
+    </resultMap>
+
+    <insert id="insertInviteRecord" parameterType="wxInvite">
+        insert into wxInvite(r_id,openid,user_id) values(#{rid},#{openid},#{userid});
+    </insert>
+
+</mapper>

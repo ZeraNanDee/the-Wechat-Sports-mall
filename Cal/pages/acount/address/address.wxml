@@ -1,0 +1,27 @@
+<view wx:for="{{address}}" wx:key>
+<view style='position: relative;'>
+  <!-- 列表层 -->
+  <view class='list' style='{{item.txtStyle}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index='{{index}}'>
+    <!-- 收货信息 -->
+    <view class='info' bindtap='select_addr' data-id='{{item.id}}'>
+      <view>
+        姓名:{{item.name}}
+        <span class="phone">手机:{{item.phoneNumber}}</span>
+        <span wx:if="{{defaultAddressId==item.id}}" class='def'>默认</span>
+      </view>
+      <view>
+        地址:{{item.region}} {{item.detail}}
+      </view>
+    </view>
+    <!-- 编辑图标 -->
+      <view class='edit' bindtap='navigateToEditAddress' data-id='{{item.id}}'>
+        <text class="icon-edit text-xxl text-grey"></text>
+      </view>
+  </view>
+  <!-- 删除按钮 -->
+  <view class="delete" data-id="{{item.id}}" data-index='{{index}}' bindtap="delItem">删除</view>
+</view>
+<view class='buttonlayout'>
+  <button class="cu-btn bg-blue lg" role="button" aria-disabled="false" bindtap='navigateToAddAddress' data-id='{{item.id}}' style='height: 80rpx;width: 550rpx;'>添加地址</button>
+</view>
+</view>

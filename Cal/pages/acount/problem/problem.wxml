@@ -1,0 +1,14 @@
+<view class='content'>
+  <button class='cu-btn block bg-blue margin-tb-sm lg' open-type="openSetting" size='30rpx'>设置权限</button>
+  <block wx:for='{{question}}' wx:key="unique">
+    <view class="grid col-1 margin-bottom text-center" role="" aria-label="">
+      <view class="bg-red padding" role="" aria-label="">
+        <text class='text'>{{item.content}}</text>
+        </view>
+      <view class="bg-green padding" role="" aria-label="">
+        <text class='text'>{{item.answer}}</text>
+        </view>
+  </view>
+
+  </block>
+  </view>

@@ -1,0 +1,54 @@
+/* pages/acount/shop/shop.wxss */
+.header{
+margin: 30rpx;
+display: flex;
+flex-direction:row-reverse; 
+border-bottom:3rpx solid slategray; 
+}
+.text{
+  width: 250rpx;
+  background-color: #CDC8B1;
+  margin: 10rpx;
+  padding: 5rpx;
+  border-radius: 20rpx;
+  text-align: center;
+}
+.product-image{
+  width: 300rpx;
+  height: 300rpx;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  background: #f7f7f7;
+  margin: 10rpx;
+}
+
+.product{
+ display: flex;
+ flex-direction: row;
+ margin-bottom: 8rpx;
+ padding: 5rpx;
+ align-items: center;
+ background-color: white;
+}
+
+.text1{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  align-self: center;
+  margin-bottom: 15px;
+}
+.text2{
+  font-size: 35rpx;
+}
+.duiqi{
+  font-size: 35rpx;
+  display: flex;
+  flex-direction: row;
+}
+.money {
+  height: 40rpx;
+  width: 40rpx;
+}

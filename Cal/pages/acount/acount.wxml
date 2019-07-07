@@ -1,0 +1,102 @@
+<view class='body'>
+
+<form bindreset="formReset">
+  <view class="userinfo">
+      <view class="userinfo-avatar" style="background-image:url({{avatarUrl}})">
+      <view class="cu-tag badge {{gender==0?'icon-female bg-pink':'icon-male bg-blue'}}"></view>
+      </view>
+      
+      <view class="flush">
+        <text class="getUserInfo">{{nickName}}</text>
+        <button class='update' style="opacity: {{opacity}}" size='defalut' form-type='reset'>更新用户</button>
+      </view>
+  </view>
+</form>
+
+<view class='UCenter-bg'>
+
+  <image src='https://image.weilanwl.com/gif/wave.gif' mode='scaleToFill' class='gif-wave'></image>
+</view>
+<view class='padding flex text-center text-grey bg-white shadow-warp'>
+
+ <view class='flex flex-sub flex-direction solid-right'>
+    <navigator url='order/order?currtab=0' hover-class='none'>
+      <view class='icon-shopfill text-xxl'>
+      <block wx:if="{{count0>0}}">
+      <view class="cu-tag badge">{{count0}}</view>
+      </block>
+      </view>
+      <view class="text-l text-green">待发货</view>
+    </navigator>
+  </view>
+  <view class='flex flex-sub flex-direction solid-right'>
+    <navigator url='order/order?currtab=1' hover-class='none'>
+      <view class='icon-deliver_fill text-xxl'>
+      <block wx:if="{{count1>0}}">
+      <view class="cu-tag badge">{{count1}}</view>
+      </block>
+      </view>
+      <view class="text-l text-green">待收货</view>
+    </navigator>
+  </view>
+  <view class='flex flex-sub flex-direction solid-right'>
+    <navigator url='order/order?currtab=2' hover-class='none'>
+      <view class='icon-squarecheckfill text-xxl'>
+      <block wx:if="{{count2>0}}">
+      <view class="cu-tag badge">{{count2}}</view>
+      </block>
+      </view>
+      <view class="text-l text-green">已完成</view>
+    </navigator>
+  </view>
+  <view class='flex flex-sub flex-direction solid-right'>
+    <navigator url='order/order?currtab=3' hover-class='none'>
+      <view class='icon-sponsorfill text-xxl'>
+      <block wx:if="{{count3>0}}">
+      <view class="cu-tag badge">{{count3}}</view>
+      </block>
+      </view>
+      <view class="text-l text-green">退货</view>
+    </navigator>
+  </view>
+
+</view>
+
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
+  <view class="cu-item arrow">
+   <navigator class='content' url='shop/shop' hover-class='none'>
+      <text class='icon-redpacket_fill text-purple'></text>
+      <text class='text-grey'>兑换记录</text>
+    </navigator>
+  </view>
+  <view class="cu-item arrow">
+    <navigator class='content' url='address/address' hover-class='none'>
+      <text class='icon-shopfill text-brown'></text>
+      <text class='text-grey'>收获地址</text>
+    </navigator>
+  </view>
+  <view class="cu-item arrow">
+    <navigator class='content' url='log/log' hover-class='none'>
+      <text class='icon-formfill text-olive'></text>
+      <text class='text-grey'>日志</text>
+    </navigator>
+  </view>
+  <view class="cu-item arrow">
+    <navigator class='content' url='relation/relation' hover-class='none'>
+      <text class='icon-writefill text-cyan'></text>
+      <text class='text-grey'>联系我们</text>
+    </navigator>
+  </view>
+  <view class="cu-item arrow">
+    <navigator class='content' url='problem/problem' hover-class='none'>
+      <text class='icon-creativefill text-orange'></text>
+      <text class='text-grey'>操作说明</text>
+    </navigator>
+  </view>
+</view>
+
+<view class='cu-tabbar-height'></view>
+  
+
+
+</view>

@@ -1,0 +1,29 @@
+<view class="bg-video bg-mask">
+  <video src='https://www.weilanwl.com/theme/wl/assets/images/slider1.mp4' autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover"></video>
+  <cover-view class='padding-xl text-white'>
+    <cover-view class='padding-xs text-sl'style='margin-left:35rpx;margin-bottom:40rpx;'>
+      卡路里运动商城
+    </cover-view>
+    <cover-view class='padding-xs text-xl'>
+      运动是创新的动力之源
+    </cover-view>
+    <cover-view class='padding-xs' style='margin-bottom:40rpx;'>
+      Sports is the Power Source of Innovation
+    </cover-view>
+    <cover-view class='padding-xs' style='border-top: 10rpx solid;'>
+      联系人：Mr.Huang
+    </cover-view>
+    <cover-view class='padding-xs'>
+      联系电话：666-666810
+    </cover-view>
+    <cover-view class='padding-xs'>
+      联系地址：福建省 漳州市 龙海市 漳州开发区
+    </cover-view>
+    <cover-view class='padding-xs' style='border-bottom: 10rpx solid;'>
+      厦门大学嘉庚学院南区
+    </cover-view>
+    <cover-view class='padding-xs text-xs'style='display:flex;flex-direction:row-reverse;'>
+      date:2019.05.04
+    </cover-view>
+  </cover-view>
+</view>

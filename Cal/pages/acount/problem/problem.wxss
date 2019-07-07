@@ -1,0 +1,24 @@
+/* pages/acount/problem/problem.wxss */
+.content{
+  display: flex;
+  flex-direction: column;
+  margin: 10rpx;
+  padding: 6rpx;
+  border: 2rpx;
+  align-items: center; 
+}
+
+.position{
+  display: flex;
+  flex-direction: row;
+  margin-right:5rpx; 
+  align-items: center;
+}
+
+.text{
+  font-size: 30rpx;
+  color: rgb(255, 255, 255);
+  margin: 10rpx;
+  padding: 10rpx;
+  border: 10rpx;
+}

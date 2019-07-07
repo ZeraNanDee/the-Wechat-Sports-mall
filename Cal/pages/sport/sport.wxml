@@ -1,0 +1,99 @@
+<view class="bg-img bg-mask padding-tb-xl" style="background-image: url(../../images/sport.png)">
+  <!--background-image里的url可以是服务器上的图片地址-->
+  <!-- <image src='../image/sport.png'></image>用于加载出本地图片，预览时才能看到 -->
+  <!--水滴效果-->
+  <view class='drip'></view>
+
+  <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+  <view class="flex">
+    <view class='flex-sub padding-sm margin-xs radius'>
+
+      <view class="display">
+        <movable-area style="height: 250rpx; width: 160rpx;">
+          <movable-view style="height: 60rpx; width: 60rpx;" x="{{x}}" y="{{y}}" direction="all" damping="8">
+            <view class='water' style="opacity:{{opacity}};"></view>    
+          </movable-view>
+        </movable-area>
+        <!--color-ui的组件按钮，点击签到-->
+
+        <view class="padding-sm">
+          <view class='flex flex-wrap justify-around'>
+            <view class='sign'>
+
+              <view class="cup"></view>
+
+              <button class='cu-btn bg-{{item.color}} animation-{{animation==item.name+"s"? item.name :""}} animation-reverse margin-sm basis-sm shadow' bindtap='toggle' data-class='{{item.name+"s"}}' wx:if="{{signed==false}}" wx:for="{{list}}" wx:key="key">今日签到</button>
+
+              <view class='signin' wx:if="{{signed==true}}">今日已签到</view>
+              <view class='signin'>已签到{{total_sign}}天</view>
+
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+    <view class='flex-sub padding-sm margin-xs radius' style='align-items: center;align-self:center;'>
+      <view class="bg-cyan padding" role="" aria-label="" style='font-size:35rpx;'>今 日 消 耗 的 运 动 量 相 当 于 ：</view>
+      <view class="bg-black padding text-bold" role="" aria-label="" style='font-size:50rpx;'>{{recordtext}}</view>
+    </view>
+
+  </view>
+
+  <view class="cu-bar bg-white solid-bottom margin-top bg-gray light">
+    <view class='action'>
+      <text class='icon-titles text-orange'></text>
+      <text class='text-xl text-bold text-black'>今日的运动量超过全国<text class='text-red'>{{percent}}</text>的人</text>
+    </view>
+  </view>
+
+  <view class="cu-card article ">
+    <view class="cu-item shadow">
+      <view class="title dir">卡路里段位：
+        <view wx:if="{{total_sign<15}}">
+          <view class='cu-tag bg-grey light sm round' style='color:rgb(35, 173, 65);'>
+            <text class='text-df'>{{rank}}</text>
+          </view>
+        </view>
+        <view wx:elif="{{total_sign<30}}">
+          <view class='cu-tag bg-grey light sm round' style='color:rgb(140, 212, 245);'>
+            <text class='text-df'>{{rank}}</text>
+          </view>
+        </view>
+        <view wx:elif="{{total_sign<45}}">
+          <view class='cu-tag bg-grey light sm round' style='color:rgb(237, 250, 58);'>
+            <text class='text-df'>{{rank}}</text>
+          </view>
+        </view>
+        <view wx:elif="{{total_sign<60}}">
+          <view class='cu-tag bg-grey light sm round' style='color:rgb(75, 199, 230);'>
+            <text class='text-df'>{{rank}}</text>
+          </view>
+        </view>
+        <view wx:elif="{{total_sign<80}}">
+          <view class='cu-tag bg-grey light sm round' style='color:rgb(195, 73, 211);'>
+            <text class='text-df'>{{rank}}</text>
+          </view>
+        </view>
+        <view wx:elif="{{total_sign<120}}">
+          <view class='cu-tag bg-grey light sm round' style='color:rgb(224, 87, 69);'>
+            <text class='text-df'>{{rank}}</text>
+          </view>
+        </view>
+        <view wx:else>
+          <view class='cu-tag bg-red light sm round' style='color:rgb(252, 255, 64);'>
+            <text class='text-df'>{{rank}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="content">
+        <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553144742387&di=d0bca3a6000e7151b4bd921f62567379&imgtype=0&src=http%3A%2F%2Fzkres1.myzaker.com%2F201903%2F5c79284a622768e71a026cd0_1024.jpg" mode="aspectFill"></image>
+        <view class="desc">
+          <view class='text-content'>{{longText}}</view>
+          <view class='text-bold '>生命在于运动，请继续加油！</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

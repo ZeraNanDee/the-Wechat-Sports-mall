@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.wxOrderMapper">
+    <resultMap id="orderMap" type="com.example.demo.entity.wxOrder">
+
+        <!--id表示主键字段，property：User类中的属性，column：数据表中的字段，javaType：Use类中属性的类型 -->
+        <!--result表示对象的任何一个属性字段 -->
+        <id property="orderId" column="order_id"></id>
+        <result property="userId" column="user_id"></result>
+        <result property="productId" column="product_id"></result>
+        <result property="addressId" column="address_id"></result>
+        <result property="statusCode" column="status_code"></result>
+
+        <result property="userName" column="user_name"></result>
+        <result property="phoneNumber" column="phonenumber"></result>
+        <result property="region" column="region"></result>
+        <result property="detail" column="detail"></result>
+        <result property="productName" column="product_name"></result>
+        <result property="createOrderTime" column="createOrder_time"></result>
+        <result property="picture" column="picture"></result>
+        <result property="price" column="price"></result>
+
+
+    </resultMap>
+
+    <insert id="insertOrder" parameterType="wxOrder" >
+          insert into wxOrder(user_id,product_id,address_id,status_code)
+          values(#{userId},#{productId},#{addressId},#{statusCode});
+    </insert>
+
+    <select id="getOrder"  resultType="wxOrder" resultMap="orderMap">
+          select o.order_id,a.user_name,a.phonenumber,a.region,a.detail,
+          p.product_name,o.createOrder_time,o.status_code,p.picture,p.price
+          from wxorder o,wxaddress a,wxproduct p
+          where o.address_id=a.address_id and o.product_id=p.product_id and o.user_id=#{0} and o.status_code=#{1};
+    </select>
+
+    <select id="getShopRecord" parameterType="java.lang.Integer" resultType="wxOrder" resultMap="orderMap">
+        select p.product_name,p.picture,p.price,o.createOrder_time
+        from wxproduct p, wxorder o,wxuser u
+        where u.user_id=o.user_id and p.product_id=o.product_id and o.user_id=#{userId};
+    </select>
+
+    <select id="getOrderNumber" resultType="Integer">
+            select count(*)
+            from wxorder
+            where user_id=#{0} and status_code=#{1};
+    </select>
+
+    <update id="stuatsCodeChange">
+            update wxorder
+            set status_code=#{1}
+            where order_id=#{0};
+    </update>
+
+    <select id="getOrderCount" parameterType="java.lang.Integer" resultType="Integer">
+        select count(*)
+        from wxorder
+        where status_code=#{statusCode};
+    </select>
+
+    <select id="getOrderAll" parameterType="java.lang.Integer" resultType="wxOrder" resultMap="orderMap">
+          select o.order_id,a.user_name,a.phonenumber,a.region,a.detail,
+          p.product_name,o.createOrder_time,o.status_code,p.picture,p.price
+          from wxorder o,wxaddress a,wxproduct p
+          where o.address_id=a.address_id and o.product_id=p.product_id and o.status_code=#{statusCode};
+    </select>
+
+</mapper>

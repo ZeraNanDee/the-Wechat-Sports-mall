@@ -1,0 +1,117 @@
+.swiper-tab {
+  height: 40px;
+  line-height: 40px;
+  background: rgb(13, 145, 20);
+  color:#fff ;
+  display: flex;
+  position: relative;
+  z-index: 2;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom:1px solid rgb(14, 160, 197);
+}
+
+.swiper-item {
+  overflow: scroll;
+}
+
+.swiper-tab-list {
+  margin: 0 20rpx;
+  padding: 0 20rpx;
+  font-size: 30rpx;
+}
+ 
+.on {
+  border-bottom:2px solid #fff;
+  color: #f5f5f5;
+}
+ 
+/*订单列表*/
+.orderDetails {
+  background: #fff;
+  border-bottom: 20rpx solid #f5f5f5;
+}
+.orderListTitle {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2rpx solid rgb(160, 153, 153);
+}
+
+.orderListHeader{
+  display: flex;
+  flex-direction: row;
+}
+ 
+.userName {
+  padding-right: 50rpx;
+  margin-left:10rpx;
+}
+.phoneNumber {
+  padding-right: 50rpx;
+  margin-left:10rpx;
+  align-self: center;
+}
+.region {
+  padding-right: 50rpx;
+  margin-left:10rpx;
+}
+.detail {
+  padding-right: 50rpx;
+  margin-left:10rpx;
+}
+
+.orderListDetails {
+  display: flex;
+  border-bottom: 1rpx solid #c9c9c9;
+}
+ 
+.orderListDetails .productImg {
+  flex: 1;
+  height:180rpx;
+  width:120px;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+ 
+.orderListDetails .productImg image {
+  width: 100px;
+  height: 90%;
+}
+ 
+.orderListDetails .productInfo {
+  flex: 4;
+  margin: 40rpx 10px 20px 30rpx;
+  font-size:15px;
+ 
+}
+ 
+.orderListDetails .productInfo .productTitle {
+  font-size:15px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom:10px;
+}
+
+.money {
+  height: 40rpx;
+  width: 40rpx;
+  align-self: center;
+}
+
+.productCount {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #f3f3f3;
+}
+
+ 
+.productCount>view {
+  display: flex;
+  flex-direction: row;
+  float: right;
+  margin-right: 30rpx;
+}
+

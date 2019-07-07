@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.example.demo.dao.wxSignMapper">
+	<resultMap id="signMap" type="com.example.demo.entity.wxSign">
+
+		<!--id表示主键字段，property：User类中的属性，column：数据表中的字段，javaType：Use类中属性的类型 -->
+		<!--result表示对象的任何一个属性字段 -->
+		<id property="signid" column="sign_id"></id>
+		<result property="userid" column="user_id"></result>
+		<result property="ticket" column="ticket"></result>
+		
+	</resultMap>
+	
+	<select id="getSigned" parameterType="java.lang.String"
+		resultType="Integer">
+		select count(*) 
+        from wxSign 
+        where to_days(signDate) = to_days(now()) and user_id=(select user_id 
+			                                                  from wxUser
+                                                              where openid=#{openid}) ;
+	</select>
+	
+	<select id="countSigned" parameterType="java.lang.String"
+		resultType="Integer">
+	SELECT count(sign_id) 
+    FROM wxSign 
+    where user_id=(select user_id 
+			       from wxUser
+                   where openid=#{openid}) ;
+	</select>	
+	
+    <insert id="insertSign" parameterType="wxSign">
+		insert into wxSign(user_id,ticket) values(#{userid},#{ticket})		
+	</insert>	
+	
+	
+</mapper>

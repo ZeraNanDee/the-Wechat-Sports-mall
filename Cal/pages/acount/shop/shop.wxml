@@ -1,0 +1,18 @@
+<!--pages/acount/shop/shop.wxml-->
+<view class='header'>
+  <text class='text'>商品兑换记录</text>
+</view>
+<view class='content'>
+  <block wx:for='{{product}}' wx:key='unique'>
+    <view class='product'>
+      <image class='product-image' src='{{item.picture}}' mode='aspectFit'></image>
+      <view class='text1'>
+      <text class='text2'>{{item.productName}}</text>
+      <view class='duiqi'>
+      礼物点券<image class='money' src='../../../images/icon_money.png' mode='aspectFit'></image>：{{item.price}}
+      </view>
+      兑换日期：{{item.createOrderTime}}
+      </view>
+    </view>
+  </block>
+</view>

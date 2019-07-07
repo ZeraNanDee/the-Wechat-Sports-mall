@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.example.demo.dao.wxProductMapper">
+  	<resultMap id="productMap" type="com.example.demo.entity.wxProduct">
+
+		<!--id表示主键字段，property：User类中的属性，column：数据表中的字段，javaType：Use类中属性的类型 -->
+		<!--result表示对象的任何一个属性字段 -->
+		<id property="productId" column="product_id"></id>
+		<result property="productName" column="product_name"></result>
+		<result property="picture" column="picture"></result>
+		<result property="price" column="price"></result>
+		<result property="pCount" column="p_count"></result>
+		
+		
+	</resultMap>
+	<select id="selectProduct" resultType="wxProduct" resultMap="productMap">
+		SELECT * FROM wxproduct
+        WHERE picture LIKE "/bannerimage/%"
+	</select>
+
+	<select id="getAllProduct" resultType="wxProduct" resultMap="productMap">
+		SELECT * FROM wxproduct
+        WHERE picture LIKE "/product/%"
+        ORDER BY picture ASC;
+	</select>
+
+	<update id="updatePcount" parameterType="wxProduct">
+		  update wxproduct SET
+		  p_count=#{pCount}
+		  where product_id=#{productId};
+	</update>
+
+	<select id="getProduct" parameterType="java.lang.Integer" resultType="wxProduct" resultMap="productMap">
+		SELECT * FROM wxproduct
+        where product_id=#{productId};
+	</select>
+
+	<update id="updateProduct" parameterType="wxProduct">
+		update wxproduct SET
+		product_name=#{productName},p_count=#{pCount},price=#{price}
+		where product_id=#{productId};
+	</update>
+
+  </mapper>

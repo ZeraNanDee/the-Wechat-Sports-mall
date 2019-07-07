@@ -1,0 +1,100 @@
+<view class="cu-custom">
+  <view class="cu-bar fixed bg-gradual-green" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+  </view>
+</view>
+<view class="cu-timeline">
+  <view class='cu-item text-green'>
+    <view class="bg-gradual-green content shadow-blur">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-green">v2.0.0</view>
+        <view class="cu-tag line-white">2019/3/25</view>
+      </view>
+      <view class='margin-top-sm text-content'>
+        <view>1.实现商品管理系统（订单处理，商品管理）</view>
+        <view>2.实现商品管理端和小程序的连接</view>
+      </view>
+    </view>
+  </view>
+  <view class='cu-item text-green'>
+    <view class="bg-green content shadow-blur">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-green">v1.0.5</view>
+        <view class="cu-tag line-white">2019/02/09</view>
+      </view>
+      <view class='margin-top-sm text-content'>
+        <view>1.画面大改，美化小程序画面</view>
+        <view>*新增运动段位功能，根据每日卡路里消耗量和签到总天数</view>
+        <view>*新增商品细化分类</view>
+        <view>*新增订单管理功能</view>
+      </view>
+    </view>
+  </view>
+  <view class='cu-item text-green'>
+    <view class="bg-green content shadow-blur">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-green">v1.0.4</view>
+        <view class="cu-tag line-white">2019/02/13</view>
+      </view>
+      <view class='margin-top-sm text-content'>
+        <view>1.修复时间线图标显示问题</view>
+        <view>2.修复全局参数和默认地址的问题</view>
+        <view>*新增全国排名功能，展示全国前20人</view>
+        <view>*实现签到功能，签到获得燃烧券</view>
+      </view>
+    </view>
+  </view>
+  <view class='cu-item text-green'>
+    <view class="bg-green content shadow-blur">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-green">v1.0.3</view>
+        <view class="cu-tag line-white">2019/01/10</view>
+      </view>
+      <view class='margin-top-sm text-content'>
+        <view>1.修复一些图标错位问题</view>
+        <view>2.修复头像文字显示问题</view>
+        <view>*新增地址管理功能，抛弃微信API默认地址</view>
+        <view>*新增运动记录模块</view>
+        <view>模块1：绘制此用户近一周运动曲线图</view>
+        <view>模块2：快速排序实现今日用户运动超过全国百分比</view>
+        <view>模块3：根据运动情况，展示相应文本内容</view>
+      </view>
+    </view>
+  </view>
+  <view class='cu-item text-green'>
+    <view class="bg-green content shadow-blur">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-green">v1.0.2</view>
+        <view class="cu-tag line-white">2019/01/06</view>
+      </view>
+      <view class='margin-top-sm text-content'>
+        <view>1.整合了第三方服务器</view>
+        <view>2.实现了基本功能的操作</view>
+        <view>3.解决了微信官方服务器数据加密的问题</view>
+      </view>
+    </view>
+  </view>
+  <view class='cu-item text-green'>
+    <view class="bg-green content shadow-blur">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-green">v1.0.1</view>
+        <view class="cu-tag line-white">2018/12/20</view>
+      </view>
+      <view class='margin-top-sm text-content'>
+        <view>主要功能</view>
+        <view>1.记录用户每日的运动量（卡路里）</view>
+        <view>2.利用卡路里兑换燃烧券</view>
+        <view>3.利用燃烧券购物，购买商品</view>
+        <view>4.通过签到和分享邀请新用户可获得更多燃烧券</view>
+      </view>
+    </view>
+  </view>
+  <view class='cu-item text-green'>
+    <view class="bg-green content shadow-blur">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-green">v1.0.0</view>
+        <view class="cu-tag line-white">2018/11/20</view>
+      </view>
+      <view class='margin-top-sm text-content'>1.0卡路里商城诞生</view>
+    </view>
+  </view>
+</view>

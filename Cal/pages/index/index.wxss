@@ -1,0 +1,139 @@
+/**index.wxss**/
+
+.index_hd {
+  background-color: rgb(255, 255, 255);
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box image {
+  width: 250rpx;
+  height: 200rpx;
+}
+
+.choose {
+  font-size: 30rpx;
+}
+
+.gongneng {
+  display: flex;
+  flex-direction: row;
+}
+
+.yaoqing {
+  color: white;
+  border-radius: 30rpx;
+  margin-bottom: 10rpx;
+}
+
+.layout{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.products {
+  background-color: #f7f7f7;
+  padding: 10rpx 10rpx 10rpx 10rpx;
+  float:left;
+}
+
+.product {
+  float:left;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 325rpx;
+  margin: 10rpx 10rpx 0rpx 10rpx;
+  margin-left: 25rpx;
+  margin-top: 15rpx;
+  padding: 5rpx 10rpx 5rpx 10rpx;
+  
+}
+
+.product-image {
+  width: 325rpx;
+  height: 325rpx;
+}
+
+.product text {
+  font-size: 30rpx;
+}
+
+.product button {
+  width: 100%;
+  align-self: center;
+}
+
+.money {
+  height: 50rpx;
+  width: 50rpx;
+}
+
+.cost {
+  color: #1296db;
+  font-size: 35rpx;
+  align-self: center;
+}
+
+.step{
+  height:450rpx;
+  width:450rpx;
+  border-radius: 100%;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  
+}
+
+.step .count{
+  margin-top: 100rpx;
+  color: #fff;
+  font-size: 75rpx;
+  text-align: center;
+  line-height: 200rpx;
+}
+.step .click{
+  color: #fff;
+  font-size: 35rpx;
+}
+.kucun{
+  color: #888;
+  font-size: 25rpx;
+}
+
+.card-swiper {
+  height: 420rpx;
+}
+
+.card-swiper swiper-item {
+  width: 610rpx !important;
+  left: 70rpx;
+  box-sizing: border-box;
+  padding: 40rpx 0rpx 70rpx;
+  overflow: initial;
+}
+
+.card-swiper swiper-item .bg-img {
+  width: 100%;
+  display: block;
+  height: 100%;
+  border-radius: 10rpx;
+  transform: scale(0.9);
+  transition: all 0.2s ease-in 0s;
+}
+
+.card-swiper swiper-item.cur .bg-img {
+  transform: none;
+  transition: all 0.2s ease-in 0s;
+}
+
+.word{
+  font-size: 30rpx;
+  opacity: 0.7;
+  font-weight: bold;
+}

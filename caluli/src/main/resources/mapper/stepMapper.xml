@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.wxStepMapper">
+	<resultMap id="stepMap" type="com.example.demo.entity.wxStep">
+
+		<!--id表示主键字段，property：User类中的属性，column：数据表中的字段，javaType：Use类中属性的类型 -->
+		<!--result表示对象的任何一个属性字段 -->
+		<id property="stepid" column="step_id"></id>
+		<result property="userid" column="user_id"></result>
+		<result property="stepnum" column="step_num"></result>
+		<result property="ticket" column="ticket"></result>
+		
+	</resultMap>
+	
+	<insert id="insertStep" parameterType="wxStep">
+		insert into wxstep(user_id,step_num,ticket) values(#{userid},#{stepnum},#{ticket})		
+	</insert>
+	
+	<select id="isexistUserid" parameterType="java.lang.Integer"
+		resultType="Integer">
+		SELECT count(*) 
+		FROM wxstep 
+		where to_days(step_time) = to_days(now()) and user_id=#{userid}
+	</select>
+	
+	<select id="exchange" parameterType="java.lang.String"
+	    resultType="java.lang.Integer">
+        select s.step_num 
+        from wxstep s,wxuser u
+        where u.user_id=s.user_id AND to_days(step_time) = to_days(now()) AND openid=#{openid}
+        order by step_time DESC limit 1;
+	</select>	
+	
+	<select id="selectstep" parameterType="java.lang.Integer"
+	    resultType="java.lang.Integer">
+        select step_num
+        from wxstep 
+        where to_days(step_time) = to_days(now()) AND user_id=#{userid}
+        order by step_time DESC limit 1;
+	</select>	
+	
+	<update id="updatestep" parameterType="wxStep">
+        update wxstep SET
+	    step_num=#{stepnum},ticket=#{ticket}
+        where to_days(step_time) = to_days(now()) AND user_id=#{userid}
+        order by step_time DESC limit 1;
+	</update>
+	
+	<select id="getticket" parameterType="java.lang.String"
+	resultType="java.lang.Double">
+        select s.ticket
+        from wxstep s,wxuser u
+        where u.user_id=s.user_id AND to_days(step_time) = to_days(now()) AND openid=#{openid}
+        order by step_time DESC limit 1;
+	</select>
+	
+	<select id="selectStepRecord" resultType="java.lang.Integer">
+       select distinct(s.step_num)
+	   from wxstep s,wxuser u
+	   where u.user_id=s.user_id AND to_days(step_time) = to_days(now());
+	</select>
+
+	
+</mapper>

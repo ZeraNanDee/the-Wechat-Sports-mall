@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/ranking/ranking",
+    "pages/sport/sport",
+    "pages/logs/logs",
+    "pages/acount/acount",
+    "pages/acount/problem/problem",
+    "pages/acount/shop/shop",
+    "pages/acount/log/log",
+    "pages/acount/order/order",
+    "pages/acount/address/address",
+    "pages/acount/address/add-address/add-address",
+    "pages/acount/address/edit-address/edit-address",
+    "pages/acount/relation/relation"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "卡路里运动商城",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {},
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#2c2c2c",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icon_index.png",
+        "selectedIconPath": "images/icon_index_HL.png"
+      },
+      {
+        "pagePath": "pages/ranking/ranking",
+        "text": "排行",
+        "iconPath": "images/ranking.png",
+        "selectedIconPath": "images/rankinghl.png"
+      },
+      {
+        "pagePath": "pages/sport/sport",
+        "text": "运动记录",
+        "iconPath": "images/record.png",
+        "selectedIconPath": "images/recordhl.png"
+      },
+      {
+        "pagePath": "pages/acount/acount",
+        "text": "我的",
+        "iconPath": "images/icon_acount.png",
+        "selectedIconPath": "images/icon_acount_HL.png"
+      }
+    ]
+  }
+}
